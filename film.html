@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Film Favorit</title>
+    <link rel="stylesheet" href="Bahan.css">
+</head>
+<body>
+    <div class="header">
+        <div class="title">My Favorite Films</div>
+        <div class="favorite">Film Favorit</div>
+    </div>
+    <div class="container">
+        <div class="poster" onclick="openModal('video1')">
+            <img src="https://cdn.shopify.com/s/files/1/0037/8008/3782/products/IMG_4757_1-196891_1024x1024@2x.jpg?v=1621901106" alt="Movie Poster 1">
+            <div class="poster-title">Transformer</div>
+        </div>
+        <div class="poster" onclick="openModal('video2')">
+            <img src="https://www.themoviedb.org/t/p/original/fFgRMzm2LPPac36qmVi5EBmW9i6.jpg" alt="Movie Poster 2">
+            <div class="poster-title">Jujur Kasian</div>
+        </div>
+        <div class="poster" onclick="openModal('video3')">
+            <img src="https://i.pinimg.com/originals/4e/e9/ab/4ee9abcefda1ad998d566929ee0b5530.jpg" alt="Movie Poster 3">
+            <div class="poster-title">Star Wars</div>
+        </div>
+    </div>
+
+    <div id="videoModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <iframe id="modalVideo" class="modal-content" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+
+    <div id="audioControl" class="audio-control" onclick="toggleAudio()">
+        <img id="speakerIcon" src="https://image.flaticon.com/icons/png/512/16/16347.png" alt="Speaker Icon">
+    </div>
+    <audio id="backgroundMusic" loop>
+        <source src="Step Into the Action - Watch this Professional 4K Trailer Now!.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        function openModal(videoId) {
+            var modal = document.getElementById("videoModal");
+            var video = document.getElementById("modalVideo");
+
+            switch(videoId) {
+                case 'video1':
+                    video.src = 'https://www.youtube.com/embed/3gHjJKnXtWw';
+                    break;
+                case 'video2':
+                    video.src = 'https://www.youtube.com/embed/yeKsqP7JW6s?si=WhYsJJn-wkdB0PWr';
+                    break;
+                case 'video3':
+                    video.src = 'https://www.youtube.com/embed/7Ood-IE7sx4';
+                    break;
+                default:
+                    video.src = '';
+            }
+
+            modal.style.display = "block";
+        }
+
+        function closeModal() {
+            var modal = document.getElementById("videoModal");
+            var video = document.getElementById("modalVideo");
+            video.src = '';
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            var modal = document.getElementById("videoModal");
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+
+        function toggleAudio() {
+            var audio = document.getElementById("backgroundMusic");
+            var speakerIcon = document.getElementById("speakerIcon");
+            if (audio.paused) {
+                audio.play();
+                speakerIcon.src = "https://image.flaticon.com/icons/png/512/16/16347.png"; 
+            } else {
+                audio.pause();
+                speakerIcon.src = "https://image.flaticon.com/icons/png/512/16/16348.png"; 
+            }
+        }
+
+        window.onload = function() {
+            var audio = document.getElementById("backgroundMusic");
+            audio.play();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('background-image.jpg') no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
+    min-height: 100vh;
+    color: white;
+    overflow: auto;
+}
+
+.overlay {
+    background-color: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 0px;
+    background-color: transparent;
+    position: fixed;
+    width: 100%;
+    z-index: 3;
+}
+
+.navbar.scrolled {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 10px 40px;
+}
+
+.navbar .navbar-brand {
+    font-size: 30px;
+    font-weight: 600;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.navbar .navbar-links {
+    display: flex;
+    gap: 30px;
+}
+
+.navbar .navbar-links .nav-link {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.navbar .navbar-links .nav-link:hover {
+    color: #f0f0f0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 20% 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.content h1 {
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+.content p {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.btn {
+    background-color: white;
+    color: black;
+    padding: 10px 30px;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+    border-radius: 25px;
+}
+
+.btn:hover {
+    background-color: #ddd;
+}
+
+.additional-content {
+    margin-top: 50px;
+}
+
+.additional-content p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
